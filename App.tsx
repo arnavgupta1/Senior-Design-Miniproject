@@ -20,11 +20,18 @@ export default function App() {
     }, []);
 
     // scan the barcode // 'data' is the barcode number here
-    const handleBarCodeScanned = ({ type, data }) => {
+    function handleBarCodeScanned({ type, data }) {
         setScanned(true);
         setText(data)
         console.log('Type: ' + type + '\nBarcode: ' + data)
+        return data;
     };
+
+    /*const handleBarCodeScanned = ({ type, data }) => {
+        setScanned(true);
+        setText(data)
+        console.log('Type: ' + type + '\nBarcode: ' + data)
+    };*/
 
     // makesure cameraaccess is available
     if (hasPermission === null) {
