@@ -89,6 +89,7 @@ export default App = () => {
      try {
       const response = await fetch('https://api.nal.usda.gov/fdc/v1/foods/list?api_key=rWlpngARJ42WBd8Fv1wkfZ7v2HIVqikmev24VKeZ');
       const json = await response.json();
+      setFoodData(json.find(handleBarcodeScanned));
       setData(json);
     } catch (error) {
       console.error(error);
